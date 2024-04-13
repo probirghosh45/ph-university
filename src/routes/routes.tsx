@@ -4,10 +4,12 @@ import About from "../pages/About";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Contact from "../pages/Contact";
-import AdminDashboard from "../pages/admin/AdminDashboard";
-import CreateStudent from "../pages/admin/CreateStudent";
-import CreateAdmin from "../pages/admin/CreateAdmin";
-import CreateFaculty from "../pages/admin/CreateFaculty";
+// import AdminDashboard from "../pages/admin/AdminDashboard";
+// import CreateStudent from "../pages/admin/CreateStudent";
+// import CreateAdmin from "../pages/admin/CreateAdmin";
+// import CreateFaculty from "../pages/admin/CreateFaculty";
+// import CreateMemeber from "../pages/admin/CreateMemeber";
+import { adminRoutes } from "./admin.routes";
 // import AdminLayout from "../components/layout/AdminLayout";
 
 const router = createBrowserRouter([
@@ -36,33 +38,47 @@ const router = createBrowserRouter([
 {
   path: "/admin",
   element: <App />,
-  children: [
-    {
-      index: true,
-      // path: "dashboard",  // relative path
-      element: <AdminDashboard />,
-    },
-    {
-      // index: true,
-      path: "dashboard",  // relative path
-      element: <AdminDashboard />,
-    },
-    {
-      // index : true,
-      path: "create-student",
-      element: <CreateStudent/>,
-    },
-    {
-      path: "create-admin",
-      element: <CreateAdmin/>,
-    },
-    {
-      path: "create-faculty",
-      element: <CreateFaculty/>,
-    },
-  ],
+  children : adminRoutes
+  // children: [
+  //   {
+  //     index: true,
+  //     // path: "dashboard",  // relative path
+  //     element: <AdminDashboard />,
+  //   },
+  //   {
+  //     // index: true,
+  //     path: "dashboard",  // relative path
+  //     element: <AdminDashboard />,
+  //   },
+  //   {
+  //     // index : true,
+  //     path: "create-student",
+  //     element: <CreateStudent/>,
+  //   },
+  //   {
+  //     path: "create-admin",
+  //     element: <CreateAdmin/>,
+  //   },
+  //   {
+  //     path: "create-faculty",
+  //     element: <CreateFaculty/>,
+  //   },
+  //   {
+  //     path: "create-member",
+  //     element: <CreateMemeber/>,
+  //   },
+  // ],
 },
-
+{
+  path : "/faculty",
+  element : <App/>,
+  children : adminRoutes
+},
+{
+  path : "/student",
+  element : <App/>,
+  children : adminRoutes
+},
 ]);
 
 export default router;
