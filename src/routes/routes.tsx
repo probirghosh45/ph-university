@@ -9,7 +9,10 @@ import Contact from "../pages/Contact";
 // import CreateAdmin from "../pages/admin/CreateAdmin";
 // import CreateFaculty from "../pages/admin/CreateFaculty";
 // import CreateMemeber from "../pages/admin/CreateMemeber";
-import { adminRoutes } from "./admin.routes";
+import { adminPaths} from "./admin.routes";
+import routesGenerator from "../utlis/routesGenerator";
+import { facultyPaths } from "./faculty.routes";
+import { studentPaths } from "./student.route";
 // import AdminLayout from "../components/layout/AdminLayout";
 
 const router = createBrowserRouter([
@@ -38,7 +41,8 @@ const router = createBrowserRouter([
 {
   path: "/admin",
   element: <App />,
-  children : adminRoutes
+  // children : adminRoutes
+  children : routesGenerator(adminPaths)
   // children: [
   //   {
   //     index: true,
@@ -72,12 +76,15 @@ const router = createBrowserRouter([
 {
   path : "/faculty",
   element : <App/>,
-  children : adminRoutes
+  // children : adminRoutes
+  children : routesGenerator(facultyPaths)
+
 },
 {
   path : "/student",
   element : <App/>,
-  children : adminRoutes
+  // children : adminRoutes
+  children : routesGenerator(studentPaths)
 },
 ]);
 
